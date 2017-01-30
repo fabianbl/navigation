@@ -20,6 +20,8 @@
     <build_depend>costmap_2d</build_depend>
     <build_depend>dynamic_reconfigure</build_depend>
     <build_depend>geometry_msgs</build_depend>
+    <build_depend>gflags_catkin</build_depend>
+    <build_depend>glog_catkin</build_depend>
     <build_depend>message_generation</build_depend>
     <build_depend>move_base_msgs</build_depend>
     <build_depend>nav_core</build_depend>

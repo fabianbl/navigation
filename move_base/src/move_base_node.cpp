@@ -27,9 +27,16 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <gflags/gflags.h>
+#include <glog/logging.h>
 #include <move_base/move_base.h>
 
 int main(int argc, char** argv){
+  google::InitGoogleLogging(argv[0]);
+  google::ParseCommandLineFlags(&argc, &argv, true);
+  google::InstallFailureSignalHandler();
+  FLAGS_alsologtostderr = true;
+  FLAGS_colorlogtostderr = true;
   ros::init(argc, argv, "move_base_node");
   tf::TransformListener tf(ros::Duration(10));
 

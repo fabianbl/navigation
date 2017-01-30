@@ -8,6 +8,8 @@ find_package(catkin REQUIRED
         pluginlib
         actionlib
         dynamic_reconfigure
+        gflags_catkin
+        glog_catkin
         message_generation
         move_base_msgs
         nav_core
