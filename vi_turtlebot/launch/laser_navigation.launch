@@ -1,0 +1,52 @@
+<launch>
+
+  <!-- Laser localization. -->
+  <include
+    file = "$(find vi_turtlebot)/launch/laser_localization.launch" />
+
+  <!-- Turtlebot velocity smoother. -->
+  <include
+    file = "$(find turtlebot_navigation)/launch/includes/velocity_smoother.launch.xml"/>
+
+  <!-- Turtlebot safety controller -->
+  <include
+    file = "$(find turtlebot_navigation)/launch/includes/safety_controller.launch.xml"/>
+
+  <!-- Move base framework. -->
+  <node
+    pkg = "move_base"
+    type = "move_base"
+    respawn = "false"
+    name = "move_base">
+    <rosparam
+      file = "$(find vi_turtlebot)/param/laser_navigation/costmap_common_params.yaml"
+      command = "load"
+      ns = "global_costmap"/>
+    <rosparam
+      file = "$(find vi_turtlebot)/param/laser_navigation/costmap_common_params.yaml"
+      command = "load"
+      ns = "local_costmap"/>
+    <rosparam
+      file = "$(find vi_turtlebot)/param/laser_navigation/local_costmap_params.yaml"
+      command="load"/>
+    <rosparam
+      file = "$(find vi_turtlebot)/param/laser_navigation/global_costmap_params.yaml"
+      command = "load"/>
+    <rosparam
+      file = "$(find vi_turtlebot)/param/laser_navigation/dwa_local_planner_params.yaml"
+      command = "load"/>
+    <rosparam
+      file = "$(find vi_turtlebot)/param/laser_navigation/move_base_params.yaml"
+      command="load"/>
+    <rosparam
+      file = "$(find vi_turtlebot)/param/laser_navigation/global_planner_params.yaml"
+      command="load"/>
+    <rosparam
+      file = "$(find vi_turtlebot)/param/laser_navigation/navfn_global_planner_params.yaml"
+      command = "load"/>
+    <remap
+      from = "/cmd_vel"
+      to = "/navigation_velocity_smoother/raw_cmd_vel"/>
+  </node>
+
+</launch>

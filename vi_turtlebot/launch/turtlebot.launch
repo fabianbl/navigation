@@ -1,0 +1,15 @@
+<launch>
+
+  <!-- Turtlebot minimal config. -->
+  <include
+    file = "$(find turtlebot_bringup)/launch/minimal.launch"/>
+
+  <!-- Autodocking. -->
+  <include
+    file = "$(find kobuki_auto_docking)/launch/minimal.launch"/>
+
+  <!-- Joystick teleoperation. -->
+  <include
+    file = "$(find turtlebot_teleop)/launch/logitech.launch"/>
+
+</launch>

@@ -1,0 +1,17 @@
+<launch>
+
+  <!-- Location of the map. -->
+  <arg
+    name = "map_filepath"
+    default = "/home/turtlebot/topomap_ws/maps/new_map" />
+
+  <!-- Map saver node. -->
+  <node
+    pkg = "map_server"
+    type = "map_saver"
+    name = "map_saver"
+    args = "-f $(arg map_filepath)"
+    output = "screen">
+  </node>
+
+</launch>

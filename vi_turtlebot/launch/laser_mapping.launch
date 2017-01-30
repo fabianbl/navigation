@@ -1,0 +1,26 @@
+<launch>
+
+  <!-- Basic joystick operation. -->
+  <include
+    file = "$(find vi_turtlebot)/launch/turtlebot.launch" />
+
+  <!-- Laser sensor. -->
+  <include
+    file = "$(find vi_turtlebot)/sensors/laser_sensor.launch" />
+
+  <!-- Laser SLAM. -->
+  <node
+    pkg = "gmapping"
+    type = "slam_gmapping"
+    name = "slam_gmapping"
+    output = "screen">
+    <remap from="/scan" to="/base_scan" />
+    <param name="particles" value="50"/>
+    <param name="delta" value="0.02"/>
+    <param name="xmin" value="-30.0"/>
+    <param name="ymin" value="-30.0"/>
+    <param name="xmax" value="30.0"/>
+    <param name="ymax" value="30.0"/>
+  </node>
+
+</launch>

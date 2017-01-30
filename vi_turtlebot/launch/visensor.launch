@@ -1,0 +1,40 @@
+<launch>
+
+  <!-- VI sensor. -->
+  <node
+    pkg = "visensor_node"
+    type = "visensor_node"
+    name = "visensor_node"
+    output = "screen">
+  </node>
+
+  <!-- Rotate the image. -->
+  <node
+    pkg = "image_rotate"
+    type = "image_rotate"
+    name = "image_rotate"
+    args = "image:=cam0/image_raw"
+    output = "screen">
+    <param
+      name = "target_frame_id"
+      value = ""/>
+    <param
+      name = "target_y"
+      value = "1.0"/>
+    <param
+      name = "source_y"
+      value = "-1.0"/>
+    <remap
+      from = "rotated/image"
+      to = "cam0_rotated/image_raw"/>
+  </node>
+
+  <!-- Send compressed image. -->
+  <node
+    pkg = "image_transport"
+    type = "republish"
+    name = "republish"
+    args = "raw in:=cam0_rotated/image_raw theora out:=cam0_rotated/image_theora">
+  </node>
+
+</launch>

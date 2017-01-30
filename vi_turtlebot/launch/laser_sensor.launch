@@ -1,0 +1,25 @@
+<launch>
+
+  <!-- UTM-30LX laser node. -->
+  <node
+    pkg = "urg_node"
+    type ="urg_node"
+    name = "urg_node"
+    output = "screen"
+    respawn = "true">
+    <param name = "angle_max" value = "1.5"/>
+    <param name = "angle_min" value = "-1.5"/>
+    <param name = "publish_intensity" value = "false"/>
+    <param name = "skip" value = "1"/>
+    <remap from = "/scan" to = "/base_scan" />
+  </node>
+
+  <!-- Transform from base to laser. -->
+  <node
+    pkg = "tf"
+    type = "static_transform_publisher"
+    name = "laser_base_broadcaster"
+    args="0.13 0 0.19 0 0 0 base_link laser 100">
+  </node>
+
+</launch>

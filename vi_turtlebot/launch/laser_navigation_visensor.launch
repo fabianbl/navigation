@@ -1,0 +1,10 @@
+<launch>
+
+  <!-- Laser navigation. -->
+  <include
+    file = "$(find vi_turtlebot)/launch/laser_navigation.launch" />
+
+  <!-- VI sensor. -->
+  <include
+    file = "$(find vi_turtlebot)/launch/visensor.launch" />
+</launch>
