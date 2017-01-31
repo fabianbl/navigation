@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>topological_planning_ros</name>
+  <version>0.0.1</version>
+  <description>A topological planner for use within the ROS navigation stack.</description>
+  <maintainer email="f.bloechliger@gmail.ch">fabianbl</maintainer>
+  <license>closed</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
+
+  <depend>aslam_cv_common</depend>
+  <depend>aslam_cv_cameras</depend>
+  <depend>aslam_cv_frames</depend>
+  <depend>costmap_2d</depend>
+  <depend>geometry_msgs</depend>
+  <depend>gflags_catkin</depend>
+  <depend>glog_catkin</depend>
+  <depend>minkindr</depend>
+  <depend>minkindr_conversions</depend>
+  <depend>multiagent_mapping_common</depend>
+  <depend>nav_core</depend>
+  <depend>pluginlib</depend>
+  <depend>posegraph</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>topological_mapping</depend>
+  <depend>vi_map</depend>
+
+  <export>
+      <nav_core plugin="${prefix}/bgp_plugin.xml" />
+  </export>
+</package>

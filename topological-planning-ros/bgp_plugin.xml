@@ -1,0 +1,8 @@
+<library path="lib/libtopological_planning_ros">
+  <class
+    name="topoplan/TopologicalPlanner"
+    type="topoplan::TopologicalPlanner"
+    base_class_type="nav_core::BaseGlobalPlanner">
+    <description> An implementation of a topological global planner. </description>
+  </class>
+</library>
